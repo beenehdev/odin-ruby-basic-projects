@@ -33,9 +33,18 @@ abc_array = ("a".."z").to_a
 result_array = Array.new
 
 string_input.each_char do |ch|
+  was_upcase = false
+  if ch == ch.upcase then was_upcase = true end
   lower = ch.downcase
+
+  unless abc_array.include?(lower)
+    result_array.push(lower)
+    next
+  end
+
   precoded_letter = abc_array.index(lower) + 1
   postcoded_letter = cipher_numcode_shifter(precoded_letter, shift_value_input)
+  # Something to reapply upcase if was_upcase = true
   result_array.push(abc_array[postcoded_letter - 1])
 end
 
