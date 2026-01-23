@@ -1,24 +1,18 @@
 def bubble_sort(array)
-  n = array.length - 1
-  count = 0
+  n = array.length
+  loop do
+    swapped = false
 
-  n.times do 
-    count += 1
-
-    array.each_index do |index|
-      break if index + count == array.length
-      next if index == array.length - 1
-
-      next_num = array[(index+1)]
-      current_num = array[index]
-
-      if current_num > next_num
-        array[index], array[(index+1)] = array[(index+1)], array[index]
+    (n - 1).times do |i|
+      if array[i] > array[i + 1]
+        array[i], array[i + 1] = array[i + 1], array[i]
+        swapped = true
       end
     end
+
+    break unless swapped
   end
 
-  puts array
   array
 end
 
