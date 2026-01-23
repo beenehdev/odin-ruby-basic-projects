@@ -1,8 +1,12 @@
 def bubble_sort(array)
-  n = array.length
+  n = array.length - 1
+  count = 0
 
   n.times do 
+    count += 1
+
     array.each_index do |index|
+      break if index + count == array.length
       next if index == array.length - 1
 
       next_num = array[(index+1)]
