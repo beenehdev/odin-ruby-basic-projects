@@ -1,8 +1,3 @@
-#  max iterations = n - 1 n being list/array length
-#  after each iteration through array, only check length - m 
-#  
-#THIS SOLUTION DOESN'T WORK AT ALL LOL
-
 def bubble_sort(array)
   n = array.length
 
@@ -14,14 +9,9 @@ def bubble_sort(array)
       current_num = array[index]
 
       if current_num > next_num
-        current_num, next_num = next_num + current_num
-        array
+        array[index], array[(index+1)] = array[(index+1)], array[index]
       end
-
-      array
     end
-
-    array
   end
 
   puts array
