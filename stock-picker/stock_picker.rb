@@ -1,14 +1,15 @@
 def stock_picker(arr)
-  best_return = []
+  sale_return = []
+  stock_pairs = []
 
   arr.each_with_index do |buy_value, buy_index|
-    best_return.push(arr[buy_index..-1].max - buy_value)
+    sell_value = arr[buy_index..-1].max 
+
+    sale_return.push(sell_value - buy_value)
+    stock_pairs.push << [buy_value, sell_value]
   end
 
-  result = []
-  result = best_return.max
-
-  #TODO: ACTUALLY RETURN THE BUY VALUE AND SELL VALUE RATHER THAN THE GREATEST RESULT
+  result = stock_pairs[sale_return.index(sale_return.max)]
   puts result
   result
 end
